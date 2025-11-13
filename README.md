@@ -1,62 +1,144 @@
-Reinforcement Learning Self-Driving Car Simulator
+Self-Driving Car Simulator
+==========================
 
-A fully custom-built 2D + 3D self-driving car simulator implemented in Python.
-The project evolves in multiple phases — starting with a simple Pygame-based driving simulator, and expanding into full Reinforcement Learning (DQN) with sensors, reward shaping, visualization, and playback.
+This project implements a complete 2D + 3D Self-Driving Car Simulator and a Reinforcement Learning agent (DQN) built completely from scratch in Python. The simulator progresses through phases — from a simple Pygame car to a fully autonomous RL-driven agent.
 
-Project Phases
-Phase 1 — Simple Driving Simulator
-Top-down 2D car using Pygame
-Rectangular or custom track
-Basic car physics (forward, steering)
-Road boundaries
-Manual driving using arrow keys
+----------------------------------------------------
+PHASES OF DEVELOPMENT
+----------------------------------------------------
 
-Phase 2 — Sensors + State Representation
-Ray-based LIDAR-style sensors
-Collision detection
-Distances returned as state vector for RL
-Visualization overlay
+Phase 1: Simple Driving Simulator
+---------------------------------
+- Top-down 2D car using Pygame
+- Arrow key controls
+- Rectangular/custom track
+- Basic physics (acceleration + steering)
+- Road boundaries and collision detection
 
-Phase 3 — Reinforcement Learning Agent
-Deep Q-Learning (DQN) agent
-Stable-Baselines3 or custom PyTorch implementation
-Reward shaping
-Training loop
-Model saving + loading
-Playback mode to watch trained agent drive
+Phase 2: Sensors + State Representation
+---------------------------------------
+- Ray-based LIDAR-style sensors
+- Distance measurements for walls
+- Collision detection using ray intersection
+- Sensor output used as state vector for RL agent
 
-Phase 4 — Game Polish / UI
-Reset button
-Training vs Playback menu
-Score / steps / episode statistics
-Cleaner UI and visualization
+Phase 3: Reinforcement Learning Agent
+-------------------------------------
+- Deep Q-Learning (DQN)
+- Custom Neural Network or Stable-Baselines3
+- Reward shaping (forward movement, no collision)
+- Epsilon-greedy exploration
+- Model saving and loading
+- Training and playback modes
 
-🚀 Features (Final Simulator)
-🧠 RL & AI
+Phase 4: Game Polish / UI
+-------------------------
+- Start / Reset buttons
+- Stats display (episode, steps, score)
+- Clean UI and improved road rendering
+- Replay trained model driving autonomously
 
-DQN-based reinforcement learning
-State from ray sensors
-Replay buffer & epsilon decay
-Model checkpointing
+----------------------------------------------------
+FEATURES
+----------------------------------------------------
+- Fully custom car physics (2D + 3D)
+- Multi-ray sensor system
+- Tracks and road generation
+- DQN reinforcement learning pipeline
+- Live visualization using Pygame + Matplotlib
+- Training curve graphs
+- Playback of trained agent
+- Modular, clean Python architecture
 
+----------------------------------------------------
+PROJECT STRUCTURE
+----------------------------------------------------
+src/
+    main.py
+    main_3d.py
+    car.py
+    car_3d.py
+    road.py
+    road_3d.py
+    sensors.py
+    rl_agent.py
+    rl_agent_3d.py
+    track.py
+    visualization.py
 
-🏎️ Vehicle Simulation
-Custom 2D/3D car physics
-Steering, acceleration, friction
-Wall & boundary collision
+models/
+    dqn_car_model.zip
+    dqn_car_model_3d.zip
 
-🔍 Sensors
-Multi-ray distance sensors
-Real-time visualization
+results/
+    simple_playback_results.png
 
-🛣️ Environment
-2D and 3D road generator
-Tracks + boundaries
-Checkpoint-based rewards
+docs/
+    Self_Driving_Car_Flow_Diagram.md
+    Self_Driving_Car_Detailed_PPT_Content.md
+    Self_Driving_Car_PPT_Content.md
 
-📊 Visualization
-Live simulation
+requirements.txt
+README.txt
 
-Training reward graphs
+----------------------------------------------------
+INSTALLATION
+----------------------------------------------------
+Install all dependencies:
 
-Playback of saved model
+    pip install -r requirements.txt
+
+Typical requirements include:
+- pygame
+- numpy
+- matplotlib
+- stable-baselines3
+- torch (if using PyTorch version)
+- opencv-python (optional)
+
+----------------------------------------------------
+HOW TO RUN THE SIMULATOR
+----------------------------------------------------
+
+Manual Driving (Phase 1):
+    python src/main.py
+Use arrow keys to control the car.
+
+Train the Agent (Phase 3):
+    python src/main.py --train
+
+Playback Trained Model:
+    python src/main.py --play
+
+3D Version:
+    python src/main_3d.py
+
+----------------------------------------------------
+TRAINING OUTPUT
+----------------------------------------------------
+During training, the program generates:
+- Reward curves
+- Loss curves
+- Saved model checkpoints
+- Playback images/screenshots
+
+These are stored inside:
+
+    results/
+    models/
+
+----------------------------------------------------
+FUTURE IMPROVEMENTS
+----------------------------------------------------
+- Add PPO, TD3, or SAC algorithms
+- Improved physics with acceleration curves
+- Multiple cars and traffic simulation
+- Lane detection or OpenCV vision integration
+- Web-based UI
+- Sensor noise simulation
+- Mobile deployment
+
+----------------------------------------------------
+AUTHOR
+----------------------------------------------------
+Developed by: Jivesh Karthikeyan
